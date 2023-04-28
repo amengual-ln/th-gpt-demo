@@ -40,7 +40,7 @@ export const EmailPrompt = () => {
                 </span>
             }
             {!isReplying &&
-                <p>{response}</p>
+                <p contentEditable spellCheck="false" className="text-justify focus:outline-none focus:outline-gray-500/50">{response}</p>
             }
         </section>
     )

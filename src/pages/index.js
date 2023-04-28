@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <Header />
       <SideBar />
-      <main className="flex min-h-screen flex-col items-center justify-center -mt-20 max-w-5xl m-auto">
+      <main className="flex min-h-[calc(100vh-100px)] flex-col items-center justify-center -mt-20 max-w-5xl m-auto">
         <h1>Obtener redacción para job description</h1>
         <Prompt />
       </main>
