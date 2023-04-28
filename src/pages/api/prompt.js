@@ -13,6 +13,7 @@ const getMessage = ({ type, prompt, company }) => {
   const messages = {
     skills: `Con qué skills debe contar un ${prompt}?`,
     jobDescription: `Quiero una redacción atractiva para ofrecer un puesto de ${prompt}`,
+    jobDescriptionWithCompany: `Quiero una redacción atractiva para ofrecer un puesto de ${prompt} para la empresa ${company}`,
     email: `Soy una empresa de reclutamiento IT, genérame un correo electrónico dirigido a ${company} para ofrecer nuestros servicios de reclutamiento para conseguir candidatos para la oferta laboral del rol de ${prompt}, en caso de interesarse, que me diga cuando tiene disponible un dia y horario para una reunión con nuestro equipo`
   }
   console.log(messages[type])
@@ -29,6 +30,11 @@ export default async function handler(req, res) {
   }
 
   if (type === 'email') {
+    messageConfig.company = company
+  }
+
+  if (type === 'jobDescription' && company !== '') {
+    messageConfig.type = 'jobDescriptionWithCompany'
     messageConfig.company = company
   }
 
